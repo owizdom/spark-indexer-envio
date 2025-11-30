@@ -4,17 +4,17 @@ This indexer tracks key on-chain events from the Spark Protocol lending platform
 
 ## Features
 
-- ✅ Tracks all major Spark Protocol events:
+-  Tracks all major Spark Protocol events:
   - `Supply` - When users supply assets to the protocol
   - `Withdraw` - When users withdraw assets from the protocol
   - `Borrow` - When users borrow assets
   - `Repay` - When users repay borrowed assets
   - `LiquidationCall` - When positions are liquidated
   - `FlashLoan` - When flash loans are executed
-- ✅ Multi-chain support (Ethereum, Gnosis, and more)
-- ✅ Price fetching with caching (DeFiLlama API)
-- ✅ USD value calculations for all transactions
-- ✅ Clean, query-friendly GraphQL schema
+-  Multi-chain support (Ethereum, Gnosis, and more)
+-  Price fetching with caching (DeFiLlama API)
+-  USD value calculations for all transactions
+-  Clean, query-friendly GraphQL schema
 
 ## Project Structure
 
