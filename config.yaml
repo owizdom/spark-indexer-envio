@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: Spark
+description: Spark Protocol Indexer
+unordered_multichain_mode: true
+
+# Global contract definitions
+contracts:
+    - name: SparkPool
+      handler: ./src/SparkEventHandlers.ts
+      events:
+          - event: Supply(address indexed reserve, address user, address indexed onBehalfOf, uint256 amount, uint16 indexed referralCode)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+          - event: Withdraw(address indexed reserve, address indexed user, address indexed to, uint256 amount)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+          - event: Borrow(address indexed reserve, address user, address indexed onBehalfOf, uint256 amount, uint8 interestRateMode, uint256 borrowRate, uint16 indexed referralCode)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+          - event: Repay(address indexed reserve, address indexed user, address indexed repayer, uint256 amount, bool useATokens)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+          - event: LiquidationCall(address indexed collateralAsset, address indexed debtAsset, address indexed user, uint256 debtToCover, uint256 liquidatedCollateralAmount, address liquidator, bool receiveAToken)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+          - event: FlashLoan(address indexed target, address initiator, address indexed asset, uint256 amount, uint8 interestRateMode, uint256 premium, uint16 indexed referralCode)
+            field_selection:
+                transaction_fields:
+                    - "hash"
+                    - "value"
+
+networks:
+    - id: 1
+      start_block: 16776401
+      contracts:
+          - name: SparkPool
+            address:
+                - 0xC13e21B648A5Ee794902342038FF3aDAB66BE987
+    - id: 100
+      start_block: 0
+      contracts:
+          - name: SparkPool
+            address:
+                - 0x2Dae5307c5E3FD1CF5A72Cb6F698f915860607e0
+    # Add more networks as needed
+    # - id: 42161
+    #   start_block: 0
+    #   contracts:
+    #       - name: SparkPool
+    #         address:
+    #             - <ARBITRUM_POOL_ADDRESS>
+

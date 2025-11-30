@@ -1,0 +1,93 @@
+type Supply {
+    id: ID!
+    reserve: String! @index
+    user: String! @index
+    onBehalfOf: String!
+    amount: BigInt!
+    precisionAmount: Float
+    usdAmount: Float
+    referralCode: BigInt!
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
+type Withdraw {
+    id: ID!
+    reserve: String! @index
+    user: String! @index
+    to: String!
+    amount: BigInt!
+    precisionAmount: Float
+    usdAmount: Float
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
+type Borrow {
+    id: ID!
+    reserve: String! @index
+    user: String! @index
+    onBehalfOf: String!
+    amount: BigInt!
+    precisionAmount: Float
+    usdAmount: Float
+    interestRateMode: BigInt!
+    borrowRate: BigInt!
+    referralCode: BigInt!
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
+type Repay {
+    id: ID!
+    reserve: String! @index
+    user: String! @index
+    repayer: String!
+    amount: BigInt!
+    precisionAmount: Float
+    usdAmount: Float
+    useATokens: Boolean!
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
+type Liquidation {
+    id: ID!
+    collateralAsset: String! @index
+    debtAsset: String! @index
+    user: String! @index
+    debtToCover: BigInt!
+    liquidatedCollateralAmount: BigInt!
+    liquidator: String!
+    receiveAToken: Boolean!
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
+type FlashLoan {
+    id: ID!
+    target: String! @index
+    initiator: String! @index
+    asset: String! @index
+    amount: BigInt!
+    precisionAmount: Float
+    usdAmount: Float
+    interestRateMode: BigInt!
+    premium: BigInt!
+    referralCode: BigInt!
+    transactionHash: String! @index
+    blockNumber: BigInt!
+    timestamp: BigInt!
+    chainId: BigInt!
+}
+
